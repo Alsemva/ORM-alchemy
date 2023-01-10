@@ -34,20 +34,20 @@ def create_db(data):
                 id=item['pk'])
             session.add(publisher)
 
-        if item['model'] == 'book':
+        elif item['model'] == 'book':
             book = Book(
                 id=item['pk'],
                 title=item['fields']['title'],
                 id_publisher=item['fields']['id_publisher'])
             session.add(book)
 
-        if item['model'] == 'shop':
+        elif item['model'] == 'shop':
             shop = Shop(
                 id=item['pk'],
                 name=item['fields']['name'])
             session.add(shop)
 
-        if item['model'] == 'stock':
+        elif item['model'] == 'stock':
             stock = Stock(
                 id=item['pk'],
                 id_book=item['fields']['id_book'],
@@ -55,7 +55,7 @@ def create_db(data):
                 count=item['fields']['count'])
             session.add(stock)
 
-        if item['model'] == 'sale':
+        elif item['model'] == 'sale':
             sale = Sale(
                 id=item['pk'],
                 price=item['fields']['price'],
